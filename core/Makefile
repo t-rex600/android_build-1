@@ -232,7 +232,7 @@ endif
 	$(hide) TARGET_BUILD_TYPE="$(TARGET_BUILD_VARIANT)" \
 			TARGET_BUILD_FLAVOR="$(TARGET_BUILD_FLAVOR)" \
 			TARGET_DEVICE="$(TARGET_VENDOR_DEVICE_NAME)" \
-			XENONHD_DEVICE="$(TARGET_DEVICE)" \
+			LIQUID_DEVICE="$(TARGET_DEVICE)" \
 			PRODUCT_NAME="$(TARGET_VENDOR_PRODUCT_NAME)" \
 			PRODUCT_BRAND="$(PRODUCT_BRAND)" \
 			PRODUCT_DEFAULT_LOCALE="$(call get-default-product-locale,$(PRODUCT_LOCALES))" \
@@ -1205,8 +1205,8 @@ ifeq ($(HOST_OS), Darwin)
 endif
 $(INSTALLED_FILES_FILE): $(FULL_SYSTEMIMAGE_DEPS)
 ifneq ($(SKIP_CHANGELOG), 1)
-	$(hide) ./vendor/xenonhd/tools/$(CHANGELOG_FILE)
-	$(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/Changelog-XenonHD-$(TARGET_DEVICE).txt
+	$(hide) ./vendor/liquid/tools/$(CHANGELOG_FILE)
+	$(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/Changelog-Liquid-$(TARGET_DEVICE).txt
 endif
 	@echo Installed file list: $@
 	@mkdir -p $(dir $@)
@@ -2102,7 +2102,7 @@ endif
 ifeq ($(WITH_GMS),true)
     $(INTERNAL_OTA_PACKAGE_TARGET): backuptool := false
 else
-ifneq ($(XENONHD_BUILD),)
+ifneq ($(LIQUID_BUILD),)
     $(INTERNAL_OTA_PACKAGE_TARGET): backuptool := true
 else
     $(INTERNAL_OTA_PACKAGE_TARGET): backuptool := false
@@ -2143,7 +2143,7 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE)
 .PHONY: otapackage bacon
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 bacon: otapackage
-	$(hide) ./vendor/xenonhd/tools/filezip
+	$(hide) ./vendor/liquid/tools/filezip
 
 endif    # build_ota_package
 # -----------------------------------------------------------------

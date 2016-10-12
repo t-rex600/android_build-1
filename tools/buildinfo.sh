@@ -65,6 +65,6 @@ if [ "$TARGET_UNIFIED_DEVICE" == "" ] ; then
 fi
 echo "ro.build.characteristics=$TARGET_AAPT_CHARACTERISTICS"
 
-echo "ro.xenonhd.device=$XENONHD_DEVICE"
+echo "ro.liquid.device=$LIQUID_DEVICE"
 
 echo "# end build properties"

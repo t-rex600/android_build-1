@@ -110,4 +110,4 @@ popd
 
 echo Done!
 echo Use the following command to set up your build environment:
-echo '  'lunch xenonhd_$DEVICE-eng
+echo '  'lunch liquid_$DEVICE-eng

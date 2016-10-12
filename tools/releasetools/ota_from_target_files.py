@@ -657,17 +657,20 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.SetPermissionsRecursive("/tmp/install", 0, 0, 0o755, 0o644, None, None)
   script.SetPermissionsRecursive("/tmp/install/bin", 0, 0, 0o755, 0o755, None, None)
 
-  script.Print("                                              ")
-  script.Print("**********************************************")
-  script.Print("   __  __                      _   _ ____     ")
-  script.Print("   \ \/ /___ _ __   ___  _ __ | | | |  _ \    ")
-  script.Print("    \  // _ \ '_ \ / _ \| '_ \| |_| | | | |   ")
-  script.Print("    /  \  __/ | | | (_) | | | |  _  | |_| |   ")
-  script.Print("   /_/\_\___|_| |_|\___/|_| |_|_| |_|____/    ")
-  script.Print("                                              ")
-  script.Print("               www.xenonhd.com                ")
-  script.Print("**********************************************")
-  script.Print("                                              ")
+  model = GetBuildProp("ro.product.model", OPTIONS.info_dict)
+  build = GetBuildProp("ro.build.date", OPTIONS.info_dict)
+  script.Print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+  script.Print("      _     _ _   _ _   _  _  _ _ _ _         ")
+  script.Print("     | |   |_ _| / _ \ | || ||_ _||   \       ")
+  script.Print("     | |__  | | | (_) || || | | | | |) |      ")
+  script.Print("     |____||___| \__\_\ \_,_||___||___/       ")	  	
+  script.Print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+  script.Print("* Liquid for %s *"%(model));
+  script.Print("* Compiled on: %s *"%(build));
+  script.Print("**********************************************");
+  script.Print("         **** Thanks TeamHorizon ****         ")  
+  script.Print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+  script.Print(" ")
 
   if OPTIONS.backuptool:
     script.Print("Performing Gapps backup. Please wait...")
